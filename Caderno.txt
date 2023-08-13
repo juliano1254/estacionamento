@@ -1,0 +1,87 @@
+Passo a passo do Projeto Final
+
+Site para criação de fluxogramas: www.draw.io
+
+1. Criar uma Virtual Env
+Pelo terminal digitar o comando:
+$ python3.10 -m venv venv
+
+1.1 Ativar a venv
+$ . venv/bin/activate
+
+2. Transformar a pasta em repositório git.
+$ git init
+
+2.1 Criar o arquivo gitignore para não subir a venv
+$ echo "venv" > .gitignore
+
+2.2 Alteram o brach principal de master para main
+$ git branch -m master main
+
+3. Instalar o django
+$ pip install django
+
+4. Iniciar o projeto django
+$ django-admin startproject estacionamento .
+
+5. No arquivo estacionamento/settings.py, faça as alterações:
+a. Apague todos os comentários para deixar o código mais limpo;
+b. Altere a variável LANGUAGE_CODE de en-us para pt-br;
+c. Altere o TIME_ZONE de UTC para America/Campo_Grande;
+    c.1. Todos os timezones do django: https://github.com/guilhermeonrails/language_code_django/blob/tz_list/list.py
+d. Adicione localhost no ALLOWED_HOSTS;
+    ALLOWED_HOSTS = ['localhost',]
+
+6. Criar o bando de dados:
+$ python manage.py migrate
+
+7. Rode o projeto para verificar se tudo está funcionando
+$ python manage.py runserver
+Na URL http://localhost:8000/ deverá aparecer o site do django.
+
+8. Crie o super usuário para o django.
+(venv) juliano@ssi-aux:~/Documents/Estudo/Curso_Programador_Web_Udemy/Projeto_Final$ python manage.py createsuperuser
+Usuário (leave blank to use 'juliano'): admin
+Endereço de email: ##Não adicionei email
+Password: 
+Password (again): 
+Superuser created successfully.
+
+usuário criado: admin
+password: H1a23j3u45!
+
+9. Rode o projeto novamente e acesse o admin para verificar o funcionamento.
+(venv) juliano@ssi-aux:~/Documents/Estudo/Curso_Programador_Web_Udemy/Projeto_Final$ python manage.py runserver
+URL do admin: http://localhost:8000/admin/
+
+
+
+Observação: instalei o github cli no PC da SSI. Depois de instalado, acessei a pasta do 
+projeto e dei os seguintes comandos:
+$ git remote add origin https://github.com/juliano1254/Projeto_Final.git
+$ git branch -M main
+$ git add .
+$ git commit -a -m "primeiro commit"
+$ git push -u origin main
+A partir de agora, para atualizar o projeto no github, 
+só usar os comandos acima, add, commit e push.
+
+
+10. Criando um app
+$ python manage.py startapp core
+
+11. Registrando a aplicação
+No arquivo settings.py, na variável INSTALLED_APPS, adicionar o app core.
+
+12. Criação dos modelos. No arquivo models.py, criar o primeiro model, pessoa.
+
+13. Migrar o banco de dados.
+$ python manage.py makemigrations
+$ python manage.py migrate
+
+14. No arquivo admin.py, importe os models criados.
+from .models import Marca, Veiculo, Pessoa
+admin.site.register(Marca)
+admin.site.register(Veiculo)
+admin.site.register(Pessoa)
+

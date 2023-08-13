@@ -1,0 +1,11 @@
+<h2>update movimentação mensalista: {{ movmensalista }} </h2>
+
+<form action="{% url 'core_movmensalista_update' movmensalista.id %}" method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Salvar</button>
+</form>
+
+<a href="{% url 'core_movmensalista_delete' movmensalista.id %}">Deletar</a>
