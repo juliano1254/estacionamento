@@ -6,7 +6,9 @@ set -o errexit
 FILE=/etc/secrets/.env
 if test -f "$FILE"; then
     echo "$FILE existe."
-    ln -s /etc/secrets/.env /var/www/html/
+    cp /etc/secrets/.env /var/www/html/
+    chown www-data: /var/www/html/.env
+    chmod +r /var/www/html/.env
 fi
 
 touch /var/log/python.log
