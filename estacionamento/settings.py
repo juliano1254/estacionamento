@@ -1,12 +1,15 @@
+import os
 from pathlib import Path
+from decouple import config
+from dj_database_url import parse as dburl
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-9q-=6utf@_@$onm&kde493l$^9im1+_$uvg9&2in!vaqw9!i_6'
+SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1',]
+ALLOWED_HOSTS = ['localhost','127.0.0.1','estacionamento-curso-udemy.onrender.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -48,12 +51,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'estacionamento.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -79,5 +78,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

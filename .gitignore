@@ -1,0 +1,12 @@
+venv
+.idea
+*.sqlite3
+*pyc
+.git
+Caderno.txt
+SALVAR.txt
+requirements-dev.txt
+.env
+index.html
+*thumbs.db*
+*desktop.ini*

@@ -1,0 +1,6 @@
+## IGNORAR OS ARQUIVOS
+**/*base.html
+**/*.pyc
+**/*__pycache__
+**/*thumbs.db
+**/*desktop.ini
