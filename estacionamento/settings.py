@@ -11,7 +11,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 #DEBUG = config('DEBUG', default=False, cast=bool)
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','estacionamento-curso-udemy.onrender.com']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','estacionamento-shnd.onrender.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',

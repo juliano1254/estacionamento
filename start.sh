@@ -17,6 +17,7 @@ python --version > /var/log/python.log
 cat /var/log/python.log
 
 python manage.py collectstatic --no-input
+python manage.py makemigrations
 python manage.py migrate
 
 apache2ctl -D FOREGROUND &
