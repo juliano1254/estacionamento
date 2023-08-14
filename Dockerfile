@@ -12,8 +12,8 @@ RUN apt-get update && \
     apt-get install -y python3-dj-static && \
     apt-get install -y python3-decouple && \
     apt-get install libapache2-mod-wsgi-py3 -y && \
-    apt-get install libpq-dev -y && \
-    apt-get install python3-Psycopg2 -y
+    apt-get install python3-psycopg2 -y && \
+    apt-get clean
 
 RUN mkdir -p /var/www/html/estacionamento && \
     mkdir -p /var/www/html/core/templates/core && \
