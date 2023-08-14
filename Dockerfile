@@ -19,7 +19,8 @@ RUN apt-get update && \
 
 RUN mkdir -p /var/www/html/estacionamento && \
     mkdir -p /var/www/html/core/templates/core && \
-    mkdir -p /var/www/html/templates
+    mkdir -p /var/www/html/templates && \
+    mkdir -p /var/www/html/static/css
 
 ## CONFIGURAÇÕES DO CONTAINER
 COPY apache2.conf /etc/apache2/
@@ -33,6 +34,7 @@ COPY core/templates/core /var/www/html/core/templates/core/
 COPY estacionamento/ /var/www/html/estacionamento/
 COPY templates/ /var/www/html/templates/
 COPY manage.py /var/www/html/
+COPY static/css/ /var/www/html/static/css/
 #COPY .env /var/www/html/
 
 ENTRYPOINT chmod +x /var/start.sh && /var/start.sh
