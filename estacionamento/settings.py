@@ -8,7 +8,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #SECRET_KEY = config('SECRET_KEY')
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = config('DEBUG', default=False, cast=bool)
+#DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = ['localhost','127.0.0.1','estacionamento-curso-udemy.onrender.com']
 
