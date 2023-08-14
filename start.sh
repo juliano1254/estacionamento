@@ -24,7 +24,8 @@ python manage.py migrate
 ## Criando o super usuário
 if [[ $CREATE_SUPERUSER ]];
 then
-  python /var/www/html/manage.py createsuperuser --no-input
+    echo $CREATE_SUPERUSER
+    python /var/www/html/manage.py createsuperuser --no-input
 fi
 
 apache2ctl -D FOREGROUND &
