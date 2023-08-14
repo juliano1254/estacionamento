@@ -22,8 +22,11 @@ python manage.py makemigrations
 python manage.py migrate
 
 ## Criando o super usuário
-./manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin_j', 'juliano1254@gmail.com', '4v;O;<TM4Utkj?61vV:b')"
-
+#./manage.py shell -c "from django.contrib.auth.models import User;import os; User.objects.create_superuser('admin_j', 'juliano1254@gmail.com', os.getenv'senhaadmin')"
+if [[ $CREATE_SUPERUSER ]];
+then
+  python /var/www/html/manage.py createsuperuser --no-input
+fi
 
 apache2ctl -D FOREGROUND &
 tail -f /var/log/apache2/error.log
