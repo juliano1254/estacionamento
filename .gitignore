@@ -10,3 +10,7 @@ requirements-dev.txt
 index.html
 *thumbs.db*
 *desktop.ini*
+apache2.conf.original
+__pycache__
+migrations
+prepararcodigo.py

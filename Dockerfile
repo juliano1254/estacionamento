@@ -29,6 +29,6 @@ COPY core/templates/core /var/www/html/core/templates/core/
 COPY estacionamento/ /var/www/html/estacionamento/
 COPY templates/ /var/www/html/templates/
 COPY manage.py /var/www/html/
-COPY .env /var/www/html/
+#COPY .env /var/www/html/
 
 ENTRYPOINT chmod +x /var/start.sh && /var/start.sh
