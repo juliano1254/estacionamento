@@ -7,6 +7,7 @@ FILE=/etc/secrets/.env
 if test -f "$FILE"; then
     echo "$FILE existe."
     ln -s /etc/secrets/.env /var/www/html/
+    chmod +r /var/www/html/.env
 fi
 
 touch /var/log/python.log
