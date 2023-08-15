@@ -33,6 +33,7 @@ COPY estacionamento/ /var/www/html/estacionamento/
 COPY templates/ /var/www/html/templates/
 COPY manage.py /var/www/html/
 COPY static/css/ /var/www/html/static/css/
+COPY static/js/ /var/www/html/static/js/
 COPY index.html /var/www/html/
 #COPY .env /var/www/html/
 
