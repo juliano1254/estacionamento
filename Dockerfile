@@ -13,8 +13,7 @@ RUN apt-get update && \
     apt-get install -y python3-decouple && \
     apt-get install libapache2-mod-wsgi-py3 -y && \
     apt-get install python3-psycopg2 -y && \
-    apt-get install python3-pip -y && \
-    pip3 install django-bootstrap-form && \
+    apt-get install python3-django-bootstrapform && \
     apt-get clean
 
 RUN mkdir -p /var/www/html/estacionamento && \
