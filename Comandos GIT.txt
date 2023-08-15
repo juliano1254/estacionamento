@@ -1,0 +1,15 @@
+Para incluir uma pasta no .gitignore adicione a barra no final do nome da pasta
+venv/
+
+Para remover um arquivo do github mas manter no diretório local:
+git rm --cached venv
+
+Para remover um diretório adicione a opção -r
+git rm --cached -r venv
+
+Adicione o arquivo no .gitignore
+
+git status
+git add .
+git commit -m ""
+git push origin main
