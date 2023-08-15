@@ -13,3 +13,4 @@ apache2.conf.original
 __pycache__
 migrations
 prepararcodigo.py
+/db.sqlite3
