@@ -7,7 +7,6 @@ Caderno.txt
 SALVAR.txt
 requirements-dev.txt
 .env
-index.html
 *thumbs.db*
 *desktop.ini*
 apache2.conf.original
