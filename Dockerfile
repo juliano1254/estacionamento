@@ -13,7 +13,7 @@ RUN apt-get update && \
     apt-get install -y python3-decouple && \
     apt-get install libapache2-mod-wsgi-py3 -y && \
     apt-get install python3-psycopg2 -y && \
-    apt-get install python3-django-bootstrapform && \
+#    apt-get install python3-django-bootstrapform && \
     apt-get clean
 
 RUN mkdir -p /var/www/html/estacionamento && \
@@ -24,7 +24,6 @@ RUN mkdir -p /var/www/html/estacionamento && \
 ## CONFIGURAÇÕES DO CONTAINER
 COPY apache2.conf /etc/apache2/
 COPY 000-default.conf /etc/apache2/sites-enabled/
-#COPY index.html /var/www/html/
 COPY start.sh /var/
 
 ## COPIANDO O SISTEMA
