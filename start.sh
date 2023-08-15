@@ -22,7 +22,8 @@ python manage.py makemigrations
 python manage.py migrate
 
 ## Criando o super usuário
-if $CREATE_SUPERUSER;
+#if $CREATE_SUPERUSER;
+if false;
 then
     echo $CREATE_SUPERUSER
     python /var/www/html/manage.py createsuperuser --no-input

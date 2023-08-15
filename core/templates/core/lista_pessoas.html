@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load bootstrap %}
 
 {% block main %}
     <div class="row">
@@ -11,7 +12,7 @@
             <form action="{% url 'core_pessoa_novo' %}" method="POST">
                 {% csrf_token %}
         
-                {{ form }}
+                {{ form|bootstrap }}
         
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
             </form>
