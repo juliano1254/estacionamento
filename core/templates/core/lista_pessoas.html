@@ -3,12 +3,8 @@
 
 {% block main %}
     <div class="row">
-        <div class="col-12">
-            <h1>Lista Pessoas</h1>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-sm-6">
+            <h1>Cadastro</h1>
             <form action="{% url 'core_pessoa_novo' %}" method="POST">
                 {% csrf_token %}
         
@@ -18,13 +14,27 @@
             </form>
         </div>
         <div class="col-sm-6">
-            <ul class="list-group">
-                {% for pessoa in pessoas %}
-                    <li class="list-group-item">
-                        <a href="{% url 'core_pessoa_update' pessoa.id %}"> {{ pessoa.nome }} </a>
-                    </li>
-                {% endfor %}
-            </ul>
+            <h1>Lista Pessoas</h1>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">Telefone</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for pessoa in pessoas %}
+                    <tr>
+                        <th scope="row"> {{pessoa.id}} </th>
+                        <td> <a href="{% url 'core_pessoa_update' pessoa.id %}"> {{ pessoa.nome }} </a> </td>
+                        <td> {{pessoa.endereco}} </td>
+                        <td> {{pessoa.telefone}} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
         </div>
     </div>
 

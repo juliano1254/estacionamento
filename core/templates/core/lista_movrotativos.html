@@ -3,12 +3,8 @@
 
 {% block main %}
 <div class="row">
-    <div class="col-12">
-        <h1>Lista Movimentos Rotativos</h1>
-    </div>
-</div>
-<div class="row">
     <div class="col-6">
+        <h1>Cadastro</h1>
         <form action="{% url 'core_movrotativo_novo' %}" method="POST">
             {% csrf_token %}
     
@@ -18,13 +14,29 @@
         </form>
     </div>
     <div class="col-6">
-        <ul class="list-group">
-            {% for mov in mov_rot %}
-                <li class="list-group-item">
-                    <a href="{% url 'core_movrotativo_update' mov.id %}"> {{ mov.checkin }} - {{ mov.veiculo.placa }} </a>
-                </li>
-            {% endfor %}
-        </ul>
+        <h1>Lista Movimentação Rotativos</h1>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Checkin</th>
+                <th scope="col">Checkout</th1>
+                <th scope="col">Veículo</th>
+                <th scope="col">Pago</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for mov in mov_rot %}
+                <tr>
+                    <td scope="row"> <a href="{% url 'core_movrotativo_update' mov.id %}"> {{ mov.id }} </a> </td>
+                    <td> {{ mov.checkin }} </td>
+                    <td> {{ mov.checkout }} </td>
+                    <td> {{ mov.veiculo }} </td>
+                    <td> {% if mov.pago == True %} Sim  {% elif mov.pago == False %} Não {% endif %} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
     </div>
 </div>
 {% endblock %}

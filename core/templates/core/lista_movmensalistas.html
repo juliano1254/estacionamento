@@ -2,13 +2,9 @@
 {% load bootstrap %}
 
 {% block main %}
-<div class="row">
-    <div class="col-12">
-        <h1>Lista Movimentos Mensalistas</h1>
-    </div>
-</div>
 <div class="row">        
     <div class="col-6">
+        <h1>Cadastro</h1>
         <form action="{% url 'core_movmensalista_novo' %}" method="POST">
             {% csrf_token %}
     
@@ -18,13 +14,27 @@
         </form>
     </div>
     <div class="col-6">
-        <ul class="list-group">
-            {% for mov in mov_mensalistas %}
-                <li class="list-group-item">
-                    <a href="{% url 'core_movmensalista_update' mov.id %}"> {{ mov.mensalista }} - {{ mov.dt_pgto }} </a>
-                </li>
-            {% endfor %}
-        </ul>
+        <h1>Lista Movimentação Mensalistas</h1>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Mensalista</th>
+                <th scope="col">Data de Pagamento</th1>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for mov in mov_mensalistas %}
+                <tr>
+                    <td scope="row"> {{ mov.id }} </td>
+                    <td> <a href="{% url 'core_movmensalista_update' mov.id %}"> {{ mov.mensalista }} </a> </td>
+                    <td> {{ mov.dt_pgto }} </td>
+                    <td> R$ {{ mov.total }} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
     </div>
 </div>
 {% endblock %}
