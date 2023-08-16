@@ -13,3 +13,6 @@ git status
 git add .
 git commit -m ""
 git push origin main
+
+Deletar o branch dev
+git branch -d dev
