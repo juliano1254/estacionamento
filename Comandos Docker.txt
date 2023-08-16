@@ -1,0 +1,5 @@
+Apagar os caches das imagens.
+docker system prune -a
+
+Remover todas as imagens
+docker rmi $(docker images -a -q)
