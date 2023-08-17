@@ -25,7 +25,8 @@ from core.views import (
 )
 
 urlpatterns = [
-    path('', home, name='core_home'),
+    path('', include('website.urls')),
+    path('sistema/', home, name='core_home'),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
 

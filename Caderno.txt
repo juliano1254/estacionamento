@@ -85,3 +85,7 @@ admin.site.register(Marca)
 admin.site.register(Veiculo)
 admin.site.register(Pessoa)
 
+
+
+Criação do website
+python manage.py startapp website
