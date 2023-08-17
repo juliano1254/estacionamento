@@ -2,3 +2,7 @@
     bottom: 0;
     position: absolute;
 }
+
+.row-space {
+    margin-top: 25px;
+}
