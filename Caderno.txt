@@ -89,3 +89,6 @@ admin.site.register(Pessoa)
 
 Criação do website
 python manage.py startapp website
+
+Para adicionar o script e fazer os menus ativarem automaticamente:
+https://stackoverflow.com/questions/24514717/bootstrap-navbar-active-state-not-working
