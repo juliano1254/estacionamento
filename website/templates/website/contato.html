@@ -4,29 +4,30 @@
 {% block main %}
 <div class="row row-space">
     <div class="col-6">
-        <form>
+        <form method="POST">
+            {% csrf_token %}
             <div class="form-row">
                 <div class="form-group col-md-12">
                         <label for="inputNome">Nome</label>
-                        <input type="text" class="form-control" id="inputNome" placeholder="Email">
+                        <input type="text" class="form-control" id="inputNome" placeholder="Email" name="email">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                         <label for="inputEmail">Email</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="nome">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label class="form-label" for="telefone">Telefone</label>
-                    <input type="tel" id="telefone" class="form-control" maxlength="15" onkeyup="handlePhone(event)" required placeholder="(xx) xxxxx-xxxx">
+                    <input type="tel" id="telefone" class="form-control" maxlength="15" onkeyup="handlePhone(event)" placeholder="(xx) xxxxx-xxxx" name="telefone" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="exampleFormControlTextarea1">Digite sua mensagem</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="mensagem"></textarea>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
