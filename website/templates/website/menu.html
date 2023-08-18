@@ -2,7 +2,7 @@
     <div class="col-12">
         <ul class="nav nav-pills nav-fill">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Home</a>
+              <a class="nav-link active" href="{% url 'website_home' %}">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Serviços</a>
@@ -14,7 +14,7 @@
               <a class="nav-link" href="#">Planos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contatos</a>
+                <a class="nav-link" href="{% url 'website_contato' %}">Contatos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'core_home' %}">Sistema</a>

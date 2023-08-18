@@ -1,0 +1,48 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block main %}
+<div class="row row-space">
+    <div class="col-6">
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                        <label for="inputNome">Nome</label>
+                        <input type="text" class="form-control" id="inputNome" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="form-label" for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" class="form-control" maxlength="15" onkeyup="handlePhone(event)" required placeholder="(xx) xxxxx-xxxx">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="exampleFormControlTextarea1">Digite sua mensagem</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+    <div class="col-6">
+        <p>Mussum Ipsum, cacilds vidis litro abertis. Mé faiz elementum girarzis, 
+        nisi eros vermeio. Vehicula non. Ut sed ex eros. Vivamus sit amet nibh 
+        non tellus tristique interdum. Quem manda na minha terra sou euzis! 
+        Cevadis im ampola pa arma uma pindureta.
+        Paisis, filhis, espiritis santis. Sapien in monti palavris qui num 
+        significa nadis i pareci latim. Copo furadis é disculpa de bebadis, 
+        arcu quam euismod magna. Tá deprimidis, eu conheço uma cachacis que 
+        pode alegrar sua vidis.</p>
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3738.3314719590076!2d-54.646413225087954!3d-20.451574481057232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9486e652c8345455%3A0xbd45d68fb1a6acd!2sAv.%20dos%20Cris%C3%A2ntemos%2C%20274%20-%20Lar%20do%20Trab.%2C%20Campo%20Grande%20-%20MS%2C%2079110-580!5e0!3m2!1spt-BR!2sbr!4v1692373619720!5m2!1spt-BR!2sbr" width="500" height="375" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+{% endblock %}

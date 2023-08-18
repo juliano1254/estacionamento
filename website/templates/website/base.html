@@ -10,8 +10,15 @@
 </head>
 <body>
     <div class="container">
-        {% block header %}
-        {% endblock %}
+        <div class="row">
+            <div class="col-6">
+                <h1>Estacionamento 24 horas</h1>
+                <span>Slogan da sua empresa aqui</span>
+            </div>
+            <div class="col-6">
+                <img src="{% static 'imagens/logo.png' %}" alt="Estacionamento 24 horas">
+            </div>
+        </div>
         {% include 'website/menu.html' %}
         {% block main %}
         {% endblock %}
@@ -26,6 +33,18 @@
             $(".nav").find(".active").removeClass("active");
             $(this).addClass("active");
          });
+         const handlePhone = (event) => {
+            let input = event.target;
+            input.value = phoneMask(input.value);
+          };
+          
+          const phoneMask = (value) => {
+            if (!value) return "";
+            value = value.replace(/\D/g,'');
+            value = value.replace(/(\d{2})(\d)/,"($1) $2");
+            value = value.replace(/(\d)(\d{4})$/,"$1-$2");
+            return value;
+          }
     </script>
 </body>
 </html>
