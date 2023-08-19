@@ -15,6 +15,14 @@ from .forms import (
     MovMensalistaForm
 )
 
+## Imports para o relatório PDF
+import os
+from django.conf import settings
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.contrib.staticfiles import finders
+
 @login_required
 def home(request):
     context = {'mensagem':"Ola mundo"}
@@ -236,3 +244,31 @@ def movmensalista_delete(request, id):
         return redirect('core_lista_movmensalista')
     else:
         return render(request, 'core/delete_confirm.html', {'obj':mov})
+    
+
+def render_pdf_view(request, params: dict):
+    template_path = 'core/relatorio.html'
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(params)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response, link_callback=template_path)
+    # if error then show some funny view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
+
+
+def create_pdf(request):
+     veiculos = Veiculo.objects.all()
+     params = {
+          'veiculos': veiculos,
+          'request': request,
+     }
+     resposta = render_pdf_view(request, params)
+     return resposta
