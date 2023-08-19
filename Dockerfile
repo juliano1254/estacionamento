@@ -14,7 +14,8 @@ RUN apt-get update && \
     apt-get install -y libapache2-mod-wsgi-py3 && \
     apt-get install -y python3-psycopg2 && \
     apt-get install -y python3-django-bootstrapform && \
-#    apt-get install -y python-xhtml2pdf && \
+    apt-get install -y python-pip && \
+    pip install xhtml2pdf && \
     apt-get clean
 
 RUN mkdir -p /var/www/html/estacionamento
