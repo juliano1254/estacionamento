@@ -16,3 +16,10 @@ git push origin main
 
 Deletar o branch dev
 git branch -d dev
+
+Criando outra branch
+git checkout -b newbranch
+Depois de comitar e fazer o push:
+git checkout main
+git merge newbranch
+git branch -d newbranch
