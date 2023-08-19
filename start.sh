@@ -20,6 +20,8 @@ python manage.py collectstatic --no-input
 ## CRIANDO O BANCO DE DADOS
 python manage.py makemigrations
 python manage.py migrate
+python manage.py makemigrations website
+python manage.py migrate website
 
 ## Criando o super usuário
 if $CREATE_SUPERUSER;
