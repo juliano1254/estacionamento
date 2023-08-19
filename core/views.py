@@ -23,6 +23,11 @@ from django.template.loader import get_template
 from xhtml2pdf import pisa
 from django.contrib.staticfiles import finders
 
+## Imports para o relatório CSV
+from django.views.generic.base import View
+import csv
+
+
 @login_required
 def home(request):
     context = {'mensagem':"Ola mundo"}
@@ -272,3 +277,22 @@ def create_pdf(request):
      }
      resposta = render_pdf_view(request, params)
      return resposta
+
+
+class ExportarParaCSV(View):
+    def get(self, request):
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="somefilename.csv"'
+
+        veiculos = Veiculo.objects.all()
+
+        writer = csv.writer(response)
+        writer.writerow(['Id', 'Marca', 'placa', 'Proprietario', 'Cor'])
+
+        for veiculo in veiculos:
+            writer.writerow(
+                [veiculo.id, veiculo.marca, veiculo.placa, veiculo.proprietario,
+                 veiculo.cor
+                 ])
+
+        return response
