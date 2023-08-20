@@ -30,4 +30,10 @@ def sobre(request):
     return render(request, 'website/sobre.html')
 
 def planos(request):
-    return render(request, 'website/planos.html')
+    mensagem = ''
+    if request.method == 'POST':
+        if request.POST.get('planoBasico') == 'planoBasico':
+            mensagem = 'Parabéns, você contratou o plano básico!'
+        elif request.POST.get('planoPro') == 'planoPro':
+            mensagem = 'Parabéns, você contratou o plano Pró!'
+    return render(request, 'website/planos.html', {'mensagem':mensagem})
